@@ -1,6 +1,6 @@
 const config = {
   host: process.env.API_HOST || '0.0.0.0',
-  port: parseInt(process.env.PORT, 10) || 5000,
+  port: parseInt(process.env.APP_PORT, 10) || 5000,
   hapi: {
     options: {
       routes: {
