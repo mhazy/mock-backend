@@ -8,7 +8,7 @@ const routeParamsValidation = joi.object({
 module.exports = [
   {
     method: 'POST',
-    path: '/v1/task',
+    path: '/v1/tasks',
     handler: controller.handlers.create,
     config: {
       description: 'Create task',
@@ -20,7 +20,7 @@ module.exports = [
   },
   {
     method: 'PUT',
-    path: '/v1/task/{uuid}',
+    path: '/v1/tasks/{uuid}',
     handler: controller.handlers.update,
     config: {
       description: 'Update task by uuid',
@@ -33,7 +33,7 @@ module.exports = [
   },
   {
     method: 'DELETE',
-    path: '/v1/task/{uuid}',
+    path: '/v1/tasks/{uuid}',
     handler: controller.handlers.remove,
     config: {
       description: 'Delete task by uuid',
@@ -45,7 +45,7 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/v1/task',
+    path: '/v1/tasks',
     handler: controller.handlers.list,
     config: {
       description: 'List all tasks',
@@ -54,7 +54,7 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/v1/task/{uuid}',
+    path: '/v1/tasks/{uuid}',
     handler: controller.handlers.get,
     config: {
       description: 'Get task by uuid',
