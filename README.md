@@ -3,7 +3,10 @@
 Node-based API with in-memory storage built with [hapi][hapi-url].
 
 API documentation is generated from [route configuration][route-config-url]
-using [lout][lout-url] and can seen at at `/docs` (deployed [here][deployment-url])
+using [lout][lout-url] and can seen at at `/docs`.
+
+![Screen Shot][api-docs-image-url]
+
 ## Installation & Usage
 
 ```
@@ -29,9 +32,10 @@ The following environment variables are used for configuring the server.
 
 By default, all routes are accessible from any origin. You may change that to a
 whitelist of origins in `server/config/index.js` - `hapi.options.routes.cors`.
- 
+
 [ngrok-url]: https://ngrok.com/
 [hapi-url]: http://hapijs.com/
 [lout-url]: https://www.npmjs.com/package/lout
 [route-config-url]: http://hapijs.com/tutorials/routing#config
 [deployment-url]: https://mock-backend.herokuapp.com/docs
+[api-docs-image-url]: http://i.imgur.com/YFjjlKo.png
