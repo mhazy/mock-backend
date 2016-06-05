@@ -3,8 +3,7 @@
 Node-based API with in-memory storage built with [hapi][hapi-url].
 
 API documentation is generated from [route configuration][route-config-url]
-using [lout][lout-url] and can seen at at `/docs`.
-
+using [lout][lout-url] and can seen at at `/docs` (deployed [here][deployment-url])
 ## Installation & Usage
 
 ```
@@ -12,7 +11,7 @@ npm install
 npm start
 ```
 
-[ngrok][ngrok-url] is an easy way make your local server publicly accessible if
+[ngrok][ngrok-url] is an easy way to make your local server publicly accessible if
 required.
 
 ## Data Persistence
@@ -35,3 +34,4 @@ whitelist of origins in `server/config/index.js` - `hapi.options.routes.cors`.
 [hapi-url]: http://hapijs.com/
 [lout-url]: https://www.npmjs.com/package/lout
 [route-config-url]: http://hapijs.com/tutorials/routing#config
+[deployment-url]: https://mock-backend.herokuapp.com/docs
