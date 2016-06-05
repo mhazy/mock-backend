@@ -1,7 +1,6 @@
 const lodash = require('lodash');
 const joi = require('joi');
 const uuidGenerator = require('uuid');
-const extend = require('extend');
 const _tasks = {};
 
 const schema = joi.object({
@@ -44,7 +43,7 @@ function list() {
  */
 function create(data) {
   const uuid = uuidGenerator.v4();
-  const task = extend({}, { id: uuid }, data);
+  const task = lodash.assign({ id: uuid }, data);
   _tasks[uuid] = task;
   return task;
 }
@@ -59,7 +58,7 @@ function update(id, data) {
   if (!_tasks.hasOwnProperty(id)) {
     return false;
   }
-  const updatedTask = extend({}, _tasks[id], data);
+  const updatedTask = lodash.assign({}, _tasks[id], data);
   _tasks[id] = updatedTask;
   return updatedTask;
 }

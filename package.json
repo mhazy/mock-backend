@@ -14,7 +14,6 @@
   "dependencies": {
     "boom": "3.2.1",
     "deep-diff": "0.3.4",
-    "extend": "3.0.0",
     "faker": "3.1.0",
     "good": "7.0.1 ",
     "good-console": "6.1.2",
