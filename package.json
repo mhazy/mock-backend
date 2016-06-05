@@ -20,14 +20,14 @@
     "good-console": "6.1.2",
     "good-squeeze": "3.0.1",
     "hapi": "13.4.1",
-    "inert": "^4.0.0",
-    "joi": "^8.4.0",
-    "lodash": "^4.13.1",
-    "lout": "^9.0.0",
+    "inert": "4.0.0",
+    "joi": "8.4.0",
+    "lodash": "4.13.1",
+    "lout": "9.0.0",
     "moment": "2.13.0",
     "randomstring": "1.1.5",
     "uuid": "2.0.2",
-    "vision": "^4.1.0"
+    "vision": "4.1.0"
   },
   "engines": {
     "node": "5.10.1"
