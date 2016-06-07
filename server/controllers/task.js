@@ -35,7 +35,7 @@ const handlers = {
   create: function (request, reply) {
     const data = request.payload;
     const task = model.tasks.actions.create(data);
-    reply(task);
+    reply(task).code(201);
   },
   /**
    * Store the passed task item
