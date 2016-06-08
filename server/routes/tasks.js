@@ -1,8 +1,8 @@
-const controller = require('../controllers/task');
+const controller = require('../controllers/tasks');
 const model = require('../model');
 const joi = require('joi');
 const routeParamsValidation = joi.object({
-  uuid: joi.string().guid()
+  uuid: joi.string().guid(),
 });
 
 module.exports = [
@@ -14,9 +14,9 @@ module.exports = [
       description: 'Create task',
       tags: ['task', 'create'],
       validate: {
-        payload: model.tasks.schema
-      }
-    }
+        payload: model.tasks.schema.create,
+      },
+    },
   },
   {
     method: 'PUT',
@@ -27,9 +27,9 @@ module.exports = [
       tags: ['task', 'update'],
       validate: {
         params: routeParamsValidation,
-        payload: model.tasks.schema
-      }
-    }
+        payload: model.tasks.schema.update,
+      },
+    },
   },
   {
     method: 'DELETE',
@@ -39,9 +39,9 @@ module.exports = [
       description: 'Delete task by uuid',
       tags: ['task', 'delete'],
       validate: {
-        params: routeParamsValidation
-      }
-    }
+        params: routeParamsValidation,
+      },
+    },
   },
   {
     method: 'GET',
@@ -49,8 +49,8 @@ module.exports = [
     handler: controller.handlers.list,
     config: {
       description: 'List all tasks',
-      tags: ['task', 'list']
-    }
+      tags: ['task', 'list'],
+    },
   },
   {
     method: 'GET',
@@ -60,8 +60,8 @@ module.exports = [
       description: 'Get task by uuid',
       tags: ['task', 'get'],
       validate: {
-        params: routeParamsValidation
-      }
-    }
-  }
+        params: routeParamsValidation,
+      },
+    },
+  },
 ];

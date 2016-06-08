@@ -1,14 +1,10 @@
-module.exports = function () {
-  const routers = [
-    './task',
-  ];
+const routers = [
+  './tasks',
+];
 
-  return routers.reduce(function (acc, route) {
-    try {
-      const tempRoute = require(route);
-      return acc.concat(tempRoute);
-    } catch (e) {
-      console.error('Unable to load route:', route, e);
-    }
-  }, []);
-};
+const routes = routers.reduce((acc, route) => {
+  const tempRoute = require(route);
+  return acc.concat(tempRoute);
+}, []);
+
+module.exports = routes;

@@ -8,7 +8,7 @@ const handlers = {
    * @param request
    * @param reply
    */
-  get: function (request, reply) {
+  get: (request, reply) => {
     const taskUuid = request.params.uuid;
     const task = model.tasks.actions.find(taskUuid);
     if (task) {
@@ -22,7 +22,7 @@ const handlers = {
    * @param request
    * @param reply
    */
-  list: function (request, reply) {
+  list: (request, reply) => {
     const tasks = model.tasks.actions.list();
     reply(tasks);
   },
@@ -32,7 +32,7 @@ const handlers = {
    * @param request
    * @param reply
    */
-  create: function (request, reply) {
+  create: (request, reply) => {
     const data = request.payload;
     const task = model.tasks.actions.create(data);
     reply(task).code(201);
@@ -43,7 +43,7 @@ const handlers = {
    * @param request
    * @param reply
    */
-  update: function (request, reply) {
+  update: (request, reply) => {
     const taskUuid = request.params.uuid;
     if (model.tasks.actions.update(taskUuid, request.payload) === false) {
       reply(boom.badRequest());
@@ -56,14 +56,14 @@ const handlers = {
    * @param request
    * @param reply
    */
-  remove: function (request, reply) {
+  remove: (request, reply) => {
     const taskUuid = request.params.uuid;
     if (model.tasks.actions.remove(taskUuid) === false) {
       reply(boom.badRequest());
     } else {
       reply().code(204);
     }
-  }
+  },
 };
 
 module.exports.handlers = handlers;

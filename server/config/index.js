@@ -6,17 +6,17 @@ const config = {
       routes: {
         payload: {
           parse: true,
-          allow: 'application/json'
+          allow: 'application/json',
         },
-        cors: true
-      }
-    }
+        cors: true,
+      },
+    },
   },
   env: (process.env.NODE_ENV) ? process.env.NODE_ENV : 'development',
-  debug: false
+  debug: false,
 };
 
-if ('development' === config.env) {
+if (config.env === 'development') {
   config.debug = true;
 }
 

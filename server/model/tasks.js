@@ -3,11 +3,15 @@ const joi = require('joi');
 const uuidGenerator = require('uuid');
 const _tasks = {};
 
-const schema = joi.object({
-  title: joi.string(),
-  description: joi.string()
-});
+const schema = {
+  create: joi.object({
+    title: joi.string().min(1).required(),
+    description: joi.string(),
+  }),
+};
 
+//
+schema.update = schema.create.optionalKeys('title');
 
 /**
  *
@@ -16,37 +20,37 @@ const schema = joi.object({
  * @param id
  * @returns {*|{}}
  */
-function find(id) {
+const findTask = (id) => {
   if (!_tasks.hasOwnProperty(id)) {
     return false;
   }
   return _tasks[id];
-}
+};
 
 /**
  * Return list of tasks
  *
  * @returns {Array}
  */
-function list() {
+const listTasks = () => {
   const tasks = [];
-  lodash.each(_tasks, function(task) {
+  lodash.each(_tasks, (task) => {
     tasks.push(task);
   });
   return tasks;
-}
+};
 
 /**
  * Create task
  *
  * @param data
  */
-function create(data) {
+const createTask = (data) => {
   const uuid = uuidGenerator.v4();
   const task = lodash.assign({ id: uuid }, data);
   _tasks[uuid] = task;
   return task;
-}
+};
 
 /**
  * Update task
@@ -54,34 +58,35 @@ function create(data) {
  * @param id
  * @param data
  */
-function update(id, data) {
+const updateTask = (id, data) => {
   if (!_tasks.hasOwnProperty(id)) {
     return false;
   }
   const updatedTask = lodash.assign({}, _tasks[id], data);
   _tasks[id] = updatedTask;
   return updatedTask;
-}
+};
 
 /**
  * Delete a task
  *
  * @param id
  */
-function remove(id) {
-  if (!_tasks.hasOwnProperty(id)) {
-    return false;
+const removeTask = (id) => {
+  if (_tasks.hasOwnProperty(id)) {
+    delete _tasks[id];
+    return true;
   }
-  delete _tasks[id];
-}
+  return false;
+};
 
 module.exports = {
   actions: {
-    find: find,
-    list: list,
-    create: create,
-    update: update,
-    remove: remove
+    find: findTask,
+    list: listTasks,
+    create: createTask,
+    update: updateTask,
+    remove: removeTask,
   },
-  schema: schema
+  schema: schema,
 };

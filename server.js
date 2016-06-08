@@ -1,7 +1,6 @@
 const config = require('./server/config');
 const plugins = require('./server/config/plugins');
 const routes = require('./server/routes');
-
 const Hapi = require('hapi');
 const server = new Hapi.Server();
 
@@ -14,14 +13,14 @@ server.connection({
 
 // Register plugins and start server
 server.register(plugins, function(err) {
-    if (err) {
-      throw err;
-    }
-    server.start(function() {
-      // Load routes
-      server.route(require('./server/routes')(server));
-      console.log('Hapi server started @ ' + server.info.uri.replace('0.0.0.0', 'localhost'));
-    });
+  if (err) {
+    throw err;
+  }
+  // Start server and register routes
+  server.start(() => {
+    server.route(routes);
+    console.log('Hapi server started @ ' + server.info.uri.replace('0.0.0.0', 'localhost'));
   });
+});
 
 module.exports = server;

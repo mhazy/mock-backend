@@ -3,36 +3,38 @@ const good = require('good');
 const vision = require('vision');
 const inert = require('inert');
 
-module.exports = [
+const basePlugins = [];
+
+const devPlugins = [
   vision,
   inert,
   // API Documentation (lout)
   {
-    register: lout
+    register: lout,
   },
   // Logging (good)
   {
     register: good,
     options: {
       ops: {
-        interval: 1000
+        interval: 5000,
       },
       reporters: {
-        console: [{
-          module: 'good-squeeze',
-          name: 'Squeeze',
-          args: [{
-            response: '*',
-            log: '*',
-            request: '*',
-            'request-internal': '*',
-            error: '*',
-            model: '*'
-          }]
-        }, {
-          module: 'good-console'
-        }, 'stdout']
-      }
-    }
-  }
+        console: [
+          {
+            module: 'good-squeeze',
+            name: 'Squeeze',
+            args: [{ response: '*', log: '*', request: '*', error: '*' }],
+          },
+          { module: 'good-console' },
+          'stdout',
+        ],
+      },
+    },
+  },
 ];
+
+const plugins = basePlugins
+  .concat(process.env.NODE_ENV === 'development' ? devPlugins : []);
+
+module.exports = plugins;
