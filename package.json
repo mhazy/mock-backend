@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "./node_modules/.bin/mocha --reporter spec -r chai",
+    "test": "npm run lint; ./node_modules/.bin/mocha --reporter spec -r chai",
     "lint": "eslint --config .eslintrc server test; exit 0"
   },
   "keywords": [],
