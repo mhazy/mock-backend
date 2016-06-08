@@ -28,7 +28,7 @@
     "vision": "4.1.0"
   },
   "engines": {
-    "node": "6.x.x"
+    "node": ">=6.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
