@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const server = require('../server');
+const createServer = require('../server');
 
 // Helper Functions
 // Retrieve tasks
@@ -27,6 +27,31 @@ const retrieveTask = (serverObj, id) => {
 };
 
 describe('route: tasks', () => {
+  let server;
+  beforeEach(done => {
+    // NOTE: Even though we're re-creating the server before each test, the
+    // "model" persists between tests. Could add a model.clear() (TODO)
+    createServer()
+      .then(testServer => {
+        server = testServer;
+      })
+      .then(done)
+      .catch(err => {
+        throw err;
+      });
+  });
+
+  afterEach(done => {
+    // Tear down server
+    server.stop({ timeout: 0 }, (err) => {
+      if (err) {
+        throw err;
+      }
+      server = null;
+      done();
+    });
+  });
+
   it('GET /v1/tasks: return an empty array when no tasks exist',
     (done) => {
       const request = {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "node index.js",
     "test": "npm run lint; ./node_modules/.bin/mocha --reporter spec -r chai",
     "lint": "eslint --config .eslintrc server test; exit 0"
   },
