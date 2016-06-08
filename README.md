@@ -1,5 +1,7 @@
 # mock-backend
 
+[![Build Status][travis-image-url]][travis-url]
+
 Node-based API with in-memory storage built with [hapi][hapi-url].
 
 API documentation is generated from [route configuration][route-config-url]
@@ -39,3 +41,5 @@ whitelist of origins in `server/config/index.js` - `hapi.options.routes.cors`.
 [route-config-url]: http://hapijs.com/tutorials/routing#config
 [deployment-url]: https://mock-backend.herokuapp.com/docs
 [api-docs-image-url]: http://i.imgur.com/YFjjlKo.png
+[travis-image-url]: https://travis-ci.org/mhazy/mock-backend.svg?branch=master
+[travis-url]: https://travis-ci.org/mhazy/mock-backend
