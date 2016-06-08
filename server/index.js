@@ -3,7 +3,7 @@ const routes = require('./routes');
 const Hapi = require('hapi');
 
 /**
- * Create server, returns promise when the server is started
+ * Create server, returns promise that resolves when the server has started
  * @param {object} [config] Configuration object
  * @param {string} [config.host] Host to bind server to
  * @param {number} [config.port] Port to bind server to
