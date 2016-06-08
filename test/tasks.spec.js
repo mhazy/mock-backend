@@ -44,7 +44,7 @@ describe('route: tasks', () => {
     }
   );
 
-  it('GET /v1/tasks/123456: return error for invalid uuid pattern',
+  it('GET /v1/tasks/{uuid}: return error for invalid uuid pattern',
     (done) => {
       const options = {
         method: 'GET',
@@ -59,7 +59,7 @@ describe('route: tasks', () => {
     }
   );
 
-  it('GET /v1/tasks/123456: return not found error non-existent task',
+  it('GET /v1/tasks/{uuid}: return not found error non-existent task',
     (done) => {
       const options = {
         method: 'GET',
