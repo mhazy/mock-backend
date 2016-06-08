@@ -29,11 +29,11 @@ const retrieveTask = (serverObj, id) => {
 describe('route: tasks', () => {
   it('GET /v1/tasks: return an empty array when no tasks exist',
     (done) => {
-      const options = {
+      const request = {
         method: 'GET',
         url: '/v1/tasks',
       };
-      server.inject(options)
+      server.inject(request)
         .then(response => {
           expect(response.statusCode).to.be.equal(200, 'wrong response');
           expect(response.result).to.be.a('array');
@@ -46,11 +46,11 @@ describe('route: tasks', () => {
 
   it('GET /v1/tasks/{uuid}: return error for invalid uuid pattern',
     (done) => {
-      const options = {
+      const request = {
         method: 'GET',
         url: '/v1/tasks/1234',
       };
-      server.inject(options)
+      server.inject(request)
         .then(response => {
           expect(response.statusCode).to.be.equal(400, 'wrong response');
         })
@@ -61,11 +61,11 @@ describe('route: tasks', () => {
 
   it('GET /v1/tasks/{uuid}: return not found error non-existent task',
     (done) => {
-      const options = {
+      const request = {
         method: 'GET',
         url: '/v1/tasks/59e7e63c-6950-4864-874b-79615fdef347',
       };
-      server.inject(options)
+      server.inject(request)
         .then(response => {
           expect(response.statusCode).to.be.equal(404, 'wrong response');
         })
@@ -191,7 +191,7 @@ describe('route: tasks', () => {
     }
   );
 
-  it('POST /v1/tasks: missing title returns error (status: 400)',
+  it('POST /v1/tasks: missing title returns error',
     (done) => {
       const request = {
         method: 'POST',
