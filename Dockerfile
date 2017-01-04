@@ -21,6 +21,6 @@ RUN cd /tmp \
 WORKDIR ${project_dir}
 COPY . ${project_dir}
 
-ENV PORT 5000
+ENV PORT 3000
 CMD ["npm", "start"]
-EXPOSE 5000
+EXPOSE 3000

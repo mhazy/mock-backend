@@ -28,7 +28,7 @@ When the server stops, your data is dead. So it goes.
 The following environment variables are used for configuring the server.
 
 - `API_HOST` - The hostname/ip to bind the server to (default: `0.0.0.0`)
-- `APP_PORT` - The port to listen to requests on (default: `5000`)
+- `APP_PORT` - The port to listen to requests on (default: `3000`)
 
 ## CORS (Cross-origin resource sharing)
 
